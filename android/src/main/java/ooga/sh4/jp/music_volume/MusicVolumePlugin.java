@@ -34,7 +34,7 @@ public class MusicVolumePlugin implements MethodCallHandler {
         break;
       case "isMute":
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-          var value = manager.isStreamMute(AudioManager.STREAM_MUSIC) ? 1 : 0;
+          int value = manager.isStreamMute(AudioManager.STREAM_MUSIC) ? 1 : 0;
           result.success(value);
         } else {
           // ミュート自体がサポートされてないからゼロを渡しとく
@@ -42,15 +42,15 @@ public class MusicVolumePlugin implements MethodCallHandler {
         }
         break;
       case "setVolume":
-        var volume = call.argument("volume");
+        Integer volume = call.argument("volume");
         if (volume == null) {
           throw new IllegalArgumentException("volume is null in call.arguments");
         }
-        var mute = call.argument("mute");
+        Integer mute = call.argument("mute");
         if (mute == null) {
           mute = 0;
         }
-        manager.setStreamVolume(AudioManager.STREAM_MUSIC, (int) volume, (int) mute);
+        manager.setStreamVolume(AudioManager.STREAM_MUSIC, volume, mute);
         result.success("success: change volume.");
 
         break;
