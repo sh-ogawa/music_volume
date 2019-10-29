@@ -1,14 +1,19 @@
 # music_volume
 
-STREM_AUDIOの音量調整プラグイン
+This package is a plugin to change the volume.
 
-## Getting Started
+Only Support android.media.AudioManager.STREAM_MUSIC, so very simple package.
 
-This project is a starting point for a Flutter
-[plug-in package](https://flutter.dev/developing-packages/),
-a specialized package that includes platform-specific implementation code for
-Android and/or iOS.
+# Using
 
-For help getting started with Flutter, view our 
-[online documentation](https://flutter.dev/docs), which offers tutorials, 
-samples, guidance on mobile development, and a full API reference.
+```dart
+var _currentVolume = await MusicVolume.currentVolume;
+var _maxVolume = await MusicVolume.maxVolume;
+var _isMute = await MusicVolume.isMute;
+await  MusicVolume.changeVolume(_maxVolume, 0);
+
+// ・・・ playing music logic
+
+await  MusicVolume.changeVolume(_currentVolume, _isMute);
+
+```
