@@ -1,6 +1,6 @@
 name: music_volume
 description: STREAM_AUDIO volume adjustment plug-in
-version: 0.0.4
+version: 0.0.5
 author: sh-ogawa <syogo0417@gmail.com>
 homepage: https://github.com/sh-ogawa/music_volume
 

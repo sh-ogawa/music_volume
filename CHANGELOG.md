@@ -10,3 +10,8 @@ Implement the following as a minimum function
 * get current volume value
 * get mute state
 * set volume and mute
+
+## 0.0.5
+
+I wrote the document seriously.
+There are no implementation changes.
